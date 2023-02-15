@@ -5,13 +5,80 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RealtorApp.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="623"
-      Title="ClientListPage">
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ClientListPage" x:Name="ClientPages">
 
-    <Grid>
-        <TextBlock Text="Text"
-                   FontSize="100"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"/>
+
+    <Grid x:Name="grid">
+        <DockPanel>
+            <StackPanel Margin="10" DockPanel.Dock="Top"
+                        Orientation="Horizontal">
+                <Button x:Name="BAdd"
+                        Content="Добавить"
+                        Margin="10 0 5 0"
+                        Click="BAdd_Click"
+                        Background="#FFB2DB8A"
+                        Width="100"/>
+                <Button x:Name="BEdit"
+                        Content="Изменить"
+                        Margin="5 0"
+                        Click="BEdit_Click"
+                        Background="#FF8ADBD6"
+                        Width="100"/>
+                <Button x:Name="BRemove"
+                        Content="Удалить"
+                        Margin="5 0"
+                        Click="BRemove_Click"
+                        Background="#FFDB8A8A"
+                        Width="100"/>
+            </StackPanel>
+            <ListView x:Name="LVClients" 
+                      d:ItemsSource="{d:SampleData ItemCount=5}"
+                      BorderThickness="0">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" 
+                               Width="{Binding ActualWidth, ElementName=grid}" 
+                               HorizontalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border CornerRadius="20" Padding="5 10" Width="255" BorderBrush="Transparent" BorderThickness="2">
+                            <Border.Background>
+                                <SolidColorBrush Color="#FFD9D9D9" Opacity="0.2"/>
+                            </Border.Background>
+                            <Grid Margin="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock  Text="{Binding StrFullName}"
+                                        FontSize="15" 
+                                        VerticalAlignment="Center">
+                                </TextBlock>
+                                <TextBlock  Text="{Binding Phone, StringFormat='Телефон: {0}'}"
+                                        Grid.Row="1"
+                                        FontSize="15" 
+                                        VerticalAlignment="Center">
+                                </TextBlock>
+                                <TextBlock  Text="{Binding Email, StringFormat='Почта: {0}'}"
+                                        Grid.Row="2"
+                                        FontSize="15" 
+                                        VerticalAlignment="Center">
+                                </TextBlock>
+
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Padding" Value="5"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        </DockPanel>
     </Grid>
 </Page>

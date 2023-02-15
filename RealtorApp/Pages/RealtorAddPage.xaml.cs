@@ -1,7 +1,9 @@
-﻿using System;
+﻿using RealtorApp.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,9 +22,67 @@ namespace RealtorApp.Pages
     /// </summary>
     public partial class RealtorAddPage : Page
     {
-        public RealtorAddPage()
+        Realtor contextRealtor = new Realtor();
+        public RealtorAddPage(Realtor realtor)
         {
             InitializeComponent();
+            contextRealtor = realtor;
+            DataContext = contextRealtor;
+        }
+
+        private void BSave_Click(object sender, RoutedEventArgs e)
+        {
+
+            string errorMessage = "";
+            if (string.IsNullOrWhiteSpace(contextRealtor.MiddleName) == true)
+            {
+                errorMessage += "Введите фамилию\n";
+            }
+            if (string.IsNullOrWhiteSpace(contextRealtor.FirstName) == true)
+            {
+                errorMessage += "Введите имя\n";
+            }
+            if (string.IsNullOrWhiteSpace(contextRealtor.LastName) == true)
+            {
+                errorMessage += "Введите отчество\n";
+            }
+
+            if (contextRealtor.DealShare >= 0 && contextRealtor.DealShare <= 100)
+            {
+                errorMessage += "Доля 0 - 100\n";
+            }
+
+            if (string.IsNullOrWhiteSpace(errorMessage) == false)
+            {
+                MessageBox.Show(errorMessage);
+                return;
+            }
+
+
+            if (contextRealtor.Id == 0)
+            {
+                App.DB.Realtor.Add(contextRealtor);
+                MessageBox.Show($"Новый риэлтор " +
+                $"{contextRealtor.MiddleName} " +
+                $"{contextRealtor.FirstName.ToCharArray()[0]}. " +
+                $"{contextRealtor.LastName.ToCharArray()[0]}. был успешно добавлен");
+            }
+            else
+            {
+                MessageBox.Show($"Риэлтор " +
+                $"{contextRealtor.MiddleName} " +
+                $"{contextRealtor.FirstName.ToCharArray()[0]}. " +
+                $"{contextRealtor.LastName.ToCharArray()[0]}. был сохранен");
+            }
+            App.DB.SaveChanges();
+
+            NavigationService.Navigate(new ClientListPage());
+        }
+
+        private void TBDealShare_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (Regex.IsMatch(e.Text, @"[0-9]") == false)
+                e.Handled = true;
         }
     }
 }

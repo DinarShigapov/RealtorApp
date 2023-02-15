@@ -27,6 +27,14 @@ namespace RealtorApp
             MainFrame.Navigate(new ClientListPage());
         }
 
+        private void BClient_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new ClientListPage());
+        }
 
+        private void BRealtor_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new RealtorListPage());
+        }
     }
 }

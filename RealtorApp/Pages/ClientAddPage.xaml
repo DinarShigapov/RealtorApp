@@ -8,7 +8,34 @@
       d:DesignHeight="450" d:DesignWidth="623"
       Title="ClientAddPage">
 
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+    </Page.Resources>
+
     <Grid>
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center" Width="254">
+            <TextBlock Text="Фамилия"/>
+            <TextBox Text="{Binding MiddleName}"/>
+            <TextBlock Text="Имя"/>
+            <TextBox Text="{Binding FirstName}"/>
+            <TextBlock Text="Отчество"/>
+            <TextBox Text="{Binding LastName}"/>
+            <TextBlock Text="Email"/>
+            <TextBox Text="{Binding Email}"/>
+            <TextBlock Text="Телефон"/>
+            <TextBox Text="{Binding Phone}" MaxLength="11"/>
+            <Button x:Name="BSave"
+                    BorderBrush="Transparent" 
+                    Background="#FFB2DB8A"
+                    Content="Сохранить"
+                    Width="150"
+                    Height="45"
+                    Click="BSave_Click"/>
+        </StackPanel>
+        
         
     </Grid>
 </Page>

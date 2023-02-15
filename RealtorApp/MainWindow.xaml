@@ -5,19 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RealtorApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="550" Width="1000">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="169"/>
-            <ColumnDefinition Width="623"/>
+            <ColumnDefinition Width="623*"/>
         </Grid.ColumnDefinitions>
 
         
         <StackPanel VerticalAlignment="Top"
                     Margin="10,50,10,0">
             <Button x:Name="BClient" 
-                    Content="Клиенты"/>
-            <Button x:Name="BRealtor" Content="Риэлторы"/>
+                    Content="Клиенты"
+                    Click="BClient_Click"/>
+            <Button x:Name="BRealtor" 
+                    Content="Риэлторы"
+                    Click="BRealtor_Click"/>
         </StackPanel>
 
         <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>

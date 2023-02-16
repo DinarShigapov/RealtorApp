@@ -37,7 +37,7 @@ namespace RealtorApp.Pages
             var selectedClient = LVClients.SelectedItem as Client;
             if (selectedClient == null)
             {
-                MessageBox.Show("Выберите клиента");
+                MessageBox.Show("Выберите клиента", "Подсказка", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             NavigationService.Navigate(new ClientAddPage(selectedClient));

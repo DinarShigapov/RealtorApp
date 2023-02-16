@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -41,10 +42,8 @@ namespace RealtorApp.Pages
                 return;
             }
 
-            if (contextClient.Email.Last() == '@' || contextClient.Email.Last() == '.')
-            {
-                MessageBox.Show("Неправильная почта");
-            }
+            if (CheckEmail(contextClient.Email) == false)
+                return;
 
             if (contextClient.Id == 0)
             {
@@ -64,6 +63,24 @@ namespace RealtorApp.Pages
             App.DB.SaveChanges();
 
             NavigationService.Navigate(new ClientListPage());
+        }
+
+        private bool CheckEmail(string textBox) 
+        {
+            string pattern = @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$";
+            if (!Regex.IsMatch(textBox, pattern, RegexOptions.IgnoreCase))
+            {
+                MessageBox.Show("Email не соответствует формату\n***@***.**");
+                return false;
+            }
+            return true;
+        }
+
+        private void TBLostFocus(object sender, RoutedEventArgs e)
+        {
+            var textBox = (sender as TextBox).Text;
+            if (CheckEmail(textBox) == false)
+                return;
         }
 
         private void BBack_Click(object sender, RoutedEventArgs e)

@@ -95,12 +95,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Client.cs">
-      <DependentUpon>RealtorModel.tt</DependentUpon>
+      <DependentUpon>RealtorDBHome.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PartialClass\Client.cs" />
     <Compile Include="Model\PartialClass\Realtor.cs" />
     <Compile Include="Model\Realtor.cs">
-      <DependentUpon>RealtorModel.tt</DependentUpon>
+      <DependentUpon>RealtorDBHome.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RealtorDBHome.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RealtorDBHome.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RealtorDBHome.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RealtorDBHome.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RealtorDBHome.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RealtorDBHome.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\RealtorModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -150,6 +165,13 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>RealtorModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="Model\RealtorDBHome.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RealtorDBHome.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\RealtorDBHome.edmx.diagram">
+      <DependentUpon>RealtorDBHome.edmx</DependentUpon>
+    </None>
     <None Include="Model\RealtorModel.edmx.diagram">
       <DependentUpon>RealtorModel.edmx</DependentUpon>
     </None>
@@ -166,6 +188,16 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Model\RealtorDBHome.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RealtorDBHome.edmx</DependentUpon>
+      <LastGenOutput>RealtorDBHome.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\RealtorDBHome.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RealtorDBHome.edmx</DependentUpon>
+      <LastGenOutput>RealtorDBHome.cs</LastGenOutput>
+    </Content>
     <Content Include="Model\RealtorModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>RealtorModel.edmx</DependentUpon>

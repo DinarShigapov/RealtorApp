@@ -20,7 +20,7 @@ namespace RealtorApp.Model
         {
             get 
             {
-                if (Phone == "")
+                if (Phone == "" || Phone == null)
                     return "Не указано";
                 else
                     return Phone;
@@ -31,7 +31,7 @@ namespace RealtorApp.Model
         {
             get
             {
-                if (Email == "")
+                if (Email == "" || Email == null)
                     return "Не указано";
                 else
                     return Email;

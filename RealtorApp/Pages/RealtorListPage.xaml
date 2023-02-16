@@ -58,7 +58,7 @@
                                             FontWeight="Bold"
                                             VerticalAlignment="Center">
                                 </TextBlock>
-                                <TextBlock  Text="{Binding DealShare, StringFormat='Доля: {0}'}"
+                                <TextBlock  Text="{Binding DealShare, StringFormat='Доля: {0}%'}"
                                         Grid.Row="1"
                                         FontSize="15" 
                                         VerticalAlignment="Center">

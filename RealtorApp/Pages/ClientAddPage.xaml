@@ -36,7 +36,8 @@
             <TextBox Text="{Binding Email}"
                      x:Name="TBEmail"
                      PreviewKeyDown="TextBox_PreviewKeyDown"
-                     PreviewTextInput="TextBox_PreviewTextInput"/>
+                     PreviewTextInput="TextBox_PreviewTextInput"
+                     LostFocus="TBLostFocus"/>
             <TextBlock Text="Телефон"/>
             <TextBox Text="{Binding Phone}" 
                      PreviewKeyDown="TextBox_PreviewKeyDown"

@@ -14,6 +14,6 @@ namespace RealtorApp
     /// </summary>
     public partial class App : Application
     {
-        public static DBRealtorEntities DB = new DBRealtorEntities();
+        public static RealtorDBEntities DB = new RealtorDBEntities();
     }
 }

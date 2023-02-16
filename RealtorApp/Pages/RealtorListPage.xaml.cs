@@ -37,7 +37,7 @@ namespace RealtorApp.Pages
             var selectedRealtor = LVRealtors.SelectedItem as Realtor;
             if (selectedRealtor == null)
             {
-                MessageBox.Show("Выберите клиента");
+                MessageBox.Show("Выберите риэлтора", "Подсказка", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             NavigationService.Navigate(new RealtorAddPage(selectedRealtor));
@@ -51,7 +51,7 @@ namespace RealtorApp.Pages
                 MessageBox.Show("Выберите клиента");
                 return;
             }
-            MessageBoxResult result = MessageBox.Show("Вы точно хотите удалить Риэлтора", "Подтверждение", MessageBoxButton.YesNo);
+            MessageBoxResult result = MessageBox.Show("Вы точно хотите удалить Риэлтора?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.No)
                 return;
 

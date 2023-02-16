@@ -47,9 +47,10 @@ namespace RealtorApp.Pages
                 errorMessage += "Введите отчество\n";
             }
 
-            if (contextRealtor.DealShare < 0 && contextRealtor.DealShare > 100)
+            if (contextRealtor.DealShare < 0 || contextRealtor.DealShare > 100)
             {
                 errorMessage += "Доля 0 - 100\n";
+                TBDealShare.Text = "0";
             }
 
             if (string.IsNullOrWhiteSpace(errorMessage) == false)
@@ -81,8 +82,14 @@ namespace RealtorApp.Pages
 
         private void TBDealShare_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (Regex.IsMatch(e.Text, @"[0-9]") == false)
+            var textBox = sender as TextBox;
+            if (Regex.IsMatch(e.Text, @"[0-9.]") == false)
                 e.Handled = true;
+            if (e.Text == "." && textBox.Text.Contains('.'))
+                e.Handled = true;
+            if (textBox.Text != "" && textBox.Text.Last() == '.' && e.Text != ".")
+                textBox.Text += e.Text;
+            textBox.CaretIndex = textBox.Text.Length;
         }
 
         private void BBack_Click(object sender, RoutedEventArgs e)

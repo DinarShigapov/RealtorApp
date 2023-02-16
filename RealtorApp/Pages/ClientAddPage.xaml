@@ -10,6 +10,12 @@
 
     <Page.Resources>
         <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="Gray"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="BorderThickness" Value="0 0 0 2"/>
+            <Setter Property="Height" Value="25"/>
             <Setter Property="FontSize" Value="15"/>
         </Style>
     </Page.Resources>
@@ -18,15 +24,23 @@
         <StackPanel VerticalAlignment="Center"
                     HorizontalAlignment="Center" Width="254">
             <TextBlock Text="Фамилия"/>
-            <TextBox Text="{Binding MiddleName}"/>
+            <TextBox Text="{Binding MiddleName}"
+                      PreviewKeyDown="TextBox_PreviewKeyDown"/>
             <TextBlock Text="Имя"/>
-            <TextBox Text="{Binding FirstName}"/>
+            <TextBox Text="{Binding FirstName}"
+                     PreviewKeyDown="TextBox_PreviewKeyDown"/>
             <TextBlock Text="Отчество"/>
-            <TextBox Text="{Binding LastName}"/>
+            <TextBox Text="{Binding LastName}"
+                     PreviewKeyDown="TextBox_PreviewKeyDown"/>
             <TextBlock Text="Email"/>
-            <TextBox Text="{Binding Email}"/>
+            <TextBox Text="{Binding Email}"
+                     x:Name="TBEmail"
+                     PreviewKeyDown="TextBox_PreviewKeyDown"
+                     PreviewTextInput="TextBox_PreviewTextInput"/>
             <TextBlock Text="Телефон"/>
-            <TextBox Text="{Binding Phone}" MaxLength="11"/>
+            <TextBox Text="{Binding Phone}" 
+                     PreviewKeyDown="TextBox_PreviewKeyDown"
+                     MaxLength="11"/>
             <Button x:Name="BSave"
                     BorderBrush="Transparent" 
                     Background="#FFB2DB8A"
@@ -35,7 +49,15 @@
                     Height="45"
                     Click="BSave_Click"/>
         </StackPanel>
-        
-        
+        <Button x:Name="BBack"
+                BorderBrush="Transparent" 
+                Background="#FFDB8E8A"
+                Content="Назад"
+                Width="70"
+                Height="35"
+                Click="BBack_Click"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right"
+                Margin="20"/>
     </Grid>
 </Page>

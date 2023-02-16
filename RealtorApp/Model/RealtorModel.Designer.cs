@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\dinar\Source\Repos\DinarShigapov\RealtorApp\RealtorApp\Model\RealtorDB.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\262023\source\repos\RealtorApp\RealtorApp\Model\RealtorModel.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.

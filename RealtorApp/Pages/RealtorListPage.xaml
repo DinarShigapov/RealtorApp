@@ -32,8 +32,8 @@
                         Width="100"/>
             </StackPanel>
             <ListView x:Name="LVRealtors" 
-                      d:ItemsSource="{d:SampleData ItemCount=5}"
-                      BorderThickness="0">
+                      BorderThickness="0"
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal" 
@@ -54,8 +54,9 @@
                                     <RowDefinition Height="10"/>
                                 </Grid.RowDefinitions>
                                 <TextBlock  Text="{Binding StrFullName}"
-                                        FontSize="15" 
-                                        VerticalAlignment="Center">
+                                            FontSize="15" 
+                                            FontWeight="Bold"
+                                            VerticalAlignment="Center">
                                 </TextBlock>
                                 <TextBlock  Text="{Binding DealShare, StringFormat='Доля: {0}'}"
                                         Grid.Row="1"

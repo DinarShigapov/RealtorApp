@@ -37,10 +37,14 @@ namespace RealtorApp.Pages
             if (string.IsNullOrWhiteSpace(contextClient.Phone) == true 
                 && string.IsNullOrWhiteSpace(contextClient.Email) == true)
             {
-                MessageBox.Show("ASD");
+                MessageBox.Show("Укажите почту или телефон");
                 return;
             }
 
+            if (contextClient.Email.Last() == '@' || contextClient.Email.Last() == '.')
+            {
+                MessageBox.Show("Неправильная почта");
+            }
 
             if (contextClient.Id == 0)
             {
@@ -60,6 +64,33 @@ namespace RealtorApp.Pages
             App.DB.SaveChanges();
 
             NavigationService.Navigate(new ClientListPage());
+        }
+
+        private void BBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ClientListPage());
+        }
+
+        private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (e.Text == "@" && TBEmail.Text.Contains('@'))
+                e.Handled = true;
+            if (e.Text == "." && TBEmail.Text.Contains('.'))
+                e.Handled = true;
+            if (TBEmail.Text != string.Empty)
+            {
+                if (TBEmail.Text.Last() == '@' && e.Text == ".")
+                    e.Handled = true;
+            }
+
         }
     }
 }

@@ -33,8 +33,8 @@
                         Width="100"/>
             </StackPanel>
             <ListView x:Name="LVClients" 
-                      d:ItemsSource="{d:SampleData ItemCount=5}"
-                      BorderThickness="0">
+                      BorderThickness="0"
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal" 
@@ -55,15 +55,16 @@
                                     <RowDefinition Height="30"/>
                                 </Grid.RowDefinitions>
                                 <TextBlock  Text="{Binding StrFullName}"
-                                        FontSize="15" 
-                                        VerticalAlignment="Center">
+                                            FontSize="15" 
+                                            VerticalAlignment="Center"
+                                            FontWeight="Bold">
                                 </TextBlock>
-                                <TextBlock  Text="{Binding Phone, StringFormat='Телефон: {0}'}"
+                                <TextBlock  Text="{Binding StrPhone, StringFormat='Телефон: {0}'}"
                                         Grid.Row="1"
                                         FontSize="15" 
                                         VerticalAlignment="Center">
                                 </TextBlock>
-                                <TextBlock  Text="{Binding Email, StringFormat='Почта: {0}'}"
+                                <TextBlock  Text="{Binding StrEmail, StringFormat='Почта: {0}'}"
                                         Grid.Row="2"
                                         FontSize="15" 
                                         VerticalAlignment="Center">

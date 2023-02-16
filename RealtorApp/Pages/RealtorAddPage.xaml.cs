@@ -47,7 +47,7 @@ namespace RealtorApp.Pages
                 errorMessage += "Введите отчество\n";
             }
 
-            if (contextRealtor.DealShare >= 0 && contextRealtor.DealShare <= 100)
+            if (contextRealtor.DealShare < 0 && contextRealtor.DealShare > 100)
             {
                 errorMessage += "Доля 0 - 100\n";
             }
@@ -76,13 +76,26 @@ namespace RealtorApp.Pages
             }
             App.DB.SaveChanges();
 
-            NavigationService.Navigate(new ClientListPage());
+            NavigationService.Navigate(new RealtorListPage());
         }
 
         private void TBDealShare_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             if (Regex.IsMatch(e.Text, @"[0-9]") == false)
                 e.Handled = true;
+        }
+
+        private void BBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new RealtorListPage());
+        }
+
+        private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

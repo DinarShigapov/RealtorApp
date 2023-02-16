@@ -29,5 +29,8 @@
                 </Style>
             </Style.Resources>
         </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Arial"/>
+        </Style>
     </Application.Resources>
 </Application>

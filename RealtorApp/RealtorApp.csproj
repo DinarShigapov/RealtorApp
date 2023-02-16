@@ -95,27 +95,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Client.cs">
-      <DependentUpon>RealtorDB.tt</DependentUpon>
+      <DependentUpon>RealtorModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PartialClass\Client.cs" />
     <Compile Include="Model\PartialClass\Realtor.cs" />
     <Compile Include="Model\Realtor.cs">
-      <DependentUpon>RealtorDB.tt</DependentUpon>
+      <DependentUpon>RealtorModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\RealtorDB.Context.cs">
+    <Compile Include="Model\RealtorModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RealtorDB.Context.tt</DependentUpon>
+      <DependentUpon>RealtorModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\RealtorDB.cs">
+    <Compile Include="Model\RealtorModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RealtorDB.tt</DependentUpon>
+      <DependentUpon>RealtorModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\RealtorDB.Designer.cs">
+    <Compile Include="Model\RealtorModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RealtorDB.edmx</DependentUpon>
+      <DependentUpon>RealtorModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ClientAddPage.xaml.cs">
       <DependentUpon>ClientAddPage.xaml</DependentUpon>
@@ -146,12 +146,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\RealtorDB.edmx">
+    <EntityDeploy Include="Model\RealtorModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>RealtorDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>RealtorModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\RealtorDB.edmx.diagram">
-      <DependentUpon>RealtorDB.edmx</DependentUpon>
+    <None Include="Model\RealtorModel.edmx.diagram">
+      <DependentUpon>RealtorModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -163,19 +163,20 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\RealtorDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>RealtorDB.Context.cs</LastGenOutput>
-      <DependentUpon>RealtorDB.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model\RealtorDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>RealtorDB.edmx</DependentUpon>
-      <LastGenOutput>RealtorDB.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="Model\RealtorModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RealtorModel.edmx</DependentUpon>
+      <LastGenOutput>RealtorModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\RealtorModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RealtorModel.edmx</DependentUpon>
+      <LastGenOutput>RealtorModel.cs</LastGenOutput>
+    </Content>
+    <Resource Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

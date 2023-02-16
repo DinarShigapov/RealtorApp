@@ -13,10 +13,10 @@ namespace RealtorApp.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class RealtorDBEntities : DbContext
+    public partial class DBRealtorEntities : DbContext
     {
-        public RealtorDBEntities()
-            : base("name=RealtorDBEntities")
+        public DBRealtorEntities()
+            : base("name=DBRealtorEntities")
         {
         }
     
